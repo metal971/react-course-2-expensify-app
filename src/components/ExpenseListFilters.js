@@ -55,8 +55,11 @@ export class ExpenseListFilters extends React.Component {
   };
 };
 
-const mapStateToProps = (state) => { filters: state.filters };
-const mapDispatchToPtops = (dispatch) => ({
+const mapStateToProps = (state) => ({ 
+  filters: state.filters 
+});
+
+const mapDispatchToProps = (dispatch) => ({
   setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
   sortByAmount: () => dispatch(sortByAmount()),
@@ -64,4 +67,4 @@ const mapDispatchToPtops = (dispatch) => ({
   setEndDate: (endDate) => dispatch(setEndate(endDate))
 });
 
-export default connect(mapStateToProps,mapDispatchToPtops)(ExpenseListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
