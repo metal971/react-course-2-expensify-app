@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { EditExpensePage } from '../../components/EditExpensePage';
 import expenses from '../fixtures/expenses';
 
@@ -22,8 +21,7 @@ beforeEach(() => {
 });
 
 test('should render EditExpensePage', () => {
-    expect(toJson(wrapper)).toMatchSnapshot();
-    
+    expect(wrapper).toMatchSnapshot();    
 });
 
 test('should handle editExpense', () => {
