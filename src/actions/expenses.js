@@ -43,15 +43,21 @@ export const startRemoveExpense = ({ id } = {}) => {
     };
 };
 
-
-
-
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
     type: 'EDIT_EXPENSE',
     id,
     updates
 });
+
+//1. Create startEditExpense (same call signature as editExpense)
+export const startEditExpense = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id}`).update(updates).then(() => {
+            dispatch(editExpense(id, updates));
+        });
+    };
+};
 
 // SET_EXPENSES
 
